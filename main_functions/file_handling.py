@@ -18,17 +18,22 @@ def openSpendLog(filename):
   
   return allDays
 
-def split_full_dict(fullDict, start=None, period=14):
-  # check for starting date, otherwise first day available
+def openCatFile(filename):
+  allCats = set()
+  with open(filename, newline='') as catfile:
+    for cat in catfile:
+      allCats.add(cat.strip())
+  return allCats
 
-  #timedelta, need to consider month...
-  return None
+def append_entry(filename, dictOfEntry):
+  with open(filename, newline='') as csvfile:
+    spendreader = csv.reader(csvfile, delimiter=',')
+    for row in spendreader:
+      pass
 
-def sum_up_by_category(alldayDict):
-  totals = {}
-  for daykey in alldayDict.keys():
-    dayDict = alldayDict[daykey]
-    for key, val in dayDict.items():
-      totals[key] = totals.get(key, 0.0) + val
+def edit_most_recent_entry(filename):
+  pass
 
-  return totals
+def order_all_items_by_date(filename):
+  pass
+
